@@ -69,8 +69,8 @@ ng_module(
 rollup_bundle(
     name = "bundle",
     additional_entry_points = [
-        "src/app/check/check.module.ngfactory",
-        "src/app/return/return.module.ngfactory",
+      //  "src/app/check/check.module.ngfactory",
+      //  "src/app/return/return.module.ngfactory",
     ],
     entry_point = ":main.prod.ts",
     deps = [
