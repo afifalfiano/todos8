@@ -36,10 +36,36 @@
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="col-xs-12">
-      <h3 class="text-center">Angular Material Date Picker</h3>
+  <div class="row mb-4" >
+    <h3 class="text-center">Angular Material Date Picker</h3>
+    <div class="col-xs-12" style="display: flex;justify-content: center;">
+      <app-material-date-picker></app-material-date-picker>
+      <br>
+      <br>
     </div>
   </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="text-center"> Lazy Load</h3>
+  <ul type="none">
+    <li>
+      <a routerLink="/" routerLinkActive="active">Normal</a>
+    </li>
+    <li>
+      <a routerLink="/return" routerLinkActive="active">Return</a>
+    </li>
+    <li>
+      <a routerLink="/check" routerLinkActive="active">Check</a>
+    </li>
+    <li>
+      <router-outlet></router-outlet>
+    </li>
+  </ul>
+
+    </div>
+  </div>
+  <br><br>
 </div>
   

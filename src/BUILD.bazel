@@ -7,11 +7,26 @@ load("@build_bazel_rules_nodejs//internal/web_package:web_package.bzl", "web_pac
 load("@npm_bazel_typescript//:index.bzl", "ts_devserver", "ts_library")
 load("@io_bazel_rules_sass//:defs.bzl", "multi_sass_binary", "sass_binary")
 
+# sass_library(
+#     name= "angular_material_theming",
+#     srsc= [
+#         "@npm//node_modules/@angular/material:_theming.scss"
+#     ]
+# )
+
 sass_binary(
   name = "global_stylesheet",
+#   srsc = [
+#       "styles.scss",
+#       "@npm//node_modules/@angular/material:_theming.scss"
+#   ]
   src = glob(["styles.css", "styles.scss"])[0],
   output_name = "global_stylesheet.css",
+#   deps = [
+#       ":angular_material_theming"
+#   ]
 )
+
 
 multi_sass_binary(
     name = "styles",
@@ -41,22 +56,37 @@ ng_module(
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@angular/forms",
+        "@npm//@angular/material",
         "@npm//@types",
         "@npm//rxjs",
         "@npm//tslib",
         "@npm//ngx-bootstrap",
-        "@npm//moment"
+        "@npm//moment",
+        "@npm//hammerjs"
     ],
 )
 
 rollup_bundle(
     name = "bundle",
+    additional_entry_points = [
+        "src/app/check/check.module.ngfactory",
+        "src/app/return/return.module.ngfactory",
+    ],
     entry_point = ":main.prod.ts",
     deps = [
         "//src",
+        "@npm//@angular/core",
+        "@npm//@angular/platform-browser",
         "@npm//@angular/router",
+        "@npm//@angular/forms",
+        "@npm//@angular/material",
+        "@npm//@types",
         "@npm//rxjs",
-        "@npm//moment"
+        "@npm//tslib",
+        "@npm//ngx-bootstrap",
+        "@npm//moment",
+        "@npm//hammerjs"
+
     ],
 )
 
@@ -101,10 +131,12 @@ ts_devserver(
     static_files = [
         "@npm//:node_modules/zone.js/dist/zone.min.js",
         ":global_stylesheet",
+        
     ],
     data = [
         # "@npm//:node_modules/moment:min/moment.min.js",
         "favicon.ico",
+        # "@npm//node_modules/hammerjs:hammer.min.js"
     ],
     index_html = "index.html",
     deps = [
