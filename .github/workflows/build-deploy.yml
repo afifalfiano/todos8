@@ -23,12 +23,11 @@ jobs:
     - name: Build
       run: |
         npm ci
-        npm run build
-        cp -r dist/bin/src/prodapp dist
+        npm run deploy
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: dist/
+        FOLDER: dist/bin/src/prodapp/
       
