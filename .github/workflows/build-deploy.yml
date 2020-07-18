@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: |
         npm ci
-        npm run build
+        npm run-script deploy
         cp -r dist-bazel/bin/src/prodapp dist
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3

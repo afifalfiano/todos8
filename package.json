@@ -5,7 +5,8 @@
     "ng": "ng",
     "postinstall": "ngc -p ./angular-metadata.tsconfig.json",
     "start": "ng serve",
-    "build": "ng build --leaveBazelFilesOnDisk --prod --base-href=/todos8",
+    "build": "ng build",
+    "deploy": "ng build --leaveBazelFilesOnDisk --prod --base-href=/todos8",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
