@@ -4,6 +4,4 @@ package(default_visibility = ["//visibility:public"])
 # in this package.
 exports_files([
     "tsconfig.json",
-    # "node_modules/bootstrap/dist/css/bootstrap.min.css",
-    # "node_modules/@angular/material/_theming.scss"
 ])
