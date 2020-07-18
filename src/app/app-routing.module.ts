@@ -4,7 +4,7 @@ import { NormalComponent } from './normal/normal.component';
 
 const routes: Routes = [
   {
-    path: '', component: NormalComponent, pathMatch: 'full'
+    path: 'normal', component: NormalComponent, pathMatch: 'full'
   },
  // { path: 'check', loadChildren: () => import('./check/check.module.ngfactory').then(m => m.CheckModuleNgFactory), pathMatch:'full' },
 // { path: 'return', loadChildren: () => import('./return/return.module.ngfactory').then(m => m.ReturnModuleNgFactory), pathMatch: 'full' }
