@@ -25,11 +25,11 @@ jobs:
         npm install
         npm ci
         npm run-script deploy
-        cp -r dist-bazel/bin/src/prodapp dist
+        cp -r dist/bin/src/prodapp dist
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: dist/todoList8
+        FOLDER: dist/
       
