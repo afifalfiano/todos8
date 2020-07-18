@@ -40,10 +40,12 @@ ng_module(
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
+        "@npm//@angular/forms",
         "@npm//@types",
         "@npm//rxjs",
         "@npm//tslib",
-        "@npm//ngx-bootstrap"
+        "@npm//ngx-bootstrap",
+        "@npm//moment"
     ],
 )
 
@@ -54,6 +56,7 @@ rollup_bundle(
         "//src",
         "@npm//@angular/router",
         "@npm//rxjs",
+        "@npm//moment"
     ],
 )
 
@@ -100,10 +103,14 @@ ts_devserver(
         ":global_stylesheet",
     ],
     data = [
+        # "@npm//:node_modules/moment:min/moment.min.js",
         "favicon.ico",
     ],
     index_html = "index.html",
-    deps = [":src"],
+    deps = [
+        # ":require.config.js",
+        ":src"
+        ],
 )
 
 ts_library(
