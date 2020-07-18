@@ -13,7 +13,8 @@
     "moduleResolution": "node"
   },
   "include": [
-    "node_modules/@angular/**/*"
+    "node_modules/@angular/**/*",
+    "node_modules/ngx-bootstrap/**/*"
   ],
   "exclude": [
     "node_modules/@angular/cli/**",
