@@ -22,6 +22,7 @@ jobs:
           ${{ runner.os }}-node-    
     - name: Build
       run: |
+        npm install
         npm ci
         npm run-script deploy
         cp -r dist-bazel/bin/src/prodapp dist
