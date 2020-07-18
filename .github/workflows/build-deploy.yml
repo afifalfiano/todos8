@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: |
         npm ci
-        npm run deploy
+        npm run build
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
